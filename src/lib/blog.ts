@@ -3,8 +3,19 @@ import type {
   BlogPost,
   BlogPostMeta,
   BlogSection,
-  Category,
+  BlogCategory,
 } from "@/types/blog";
+
+type FrontMatterAttributes = {
+  slug?: string;
+  title: string;
+  excerpt: string;
+  category: Exclude<BlogCategory, "all">;
+  publishedAt: string | Date;
+  readTime: string;
+  coverImage?: string;
+  coverImageAlt?: string;
+};
 
 const markdownModules = import.meta.glob("@/content/blog/*.md", {
   eager: true,
@@ -12,29 +23,31 @@ const markdownModules = import.meta.glob("@/content/blog/*.md", {
   import: "default",
 });
 
-type FrontMatterAttributes = {
-  slug?: string;
-  title: string;
-  excerpt: string;
-  category: Exclude<Category, "all">;
-  publishedAt: string;
-  readTime: string;
-  coverImage?: string;
-  coverImageAlt?: string;
-};
+function normalizeToString(value: unknown): string {
+  if (value instanceof Date) {
+    return value.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  }
+
+  return String(value ?? "");
+}
 
 function slugify(text: string): string {
   return text
     .toLowerCase()
     .trim()
-    .replace(/[^\u0600-\u06FFa-z0-9\\s-]/g, "")
+    .replace(/[^\u0600-\u06FFa-z0-9\s-]/g, "")
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-");
 }
 
 function parseSections(markdown: string): BlogSection[] {
-  const normalized = markdown.trim();
-  const matches = [...normalized.matchAll(/^##\\s+(.+)$/gm)];
+  const normalized = markdown.replace(/\r\n/g, "\n").trim();
+
+  const matches = [...normalized.matchAll(/^##\s+(.+)$/gm)];
 
   if (matches.length === 0) {
     return [
@@ -46,31 +59,23 @@ function parseSections(markdown: string): BlogSection[] {
     ];
   }
 
-  const sections: BlogSection[] = [];
+  return matches.map((match, index) => {
+    const title = match[1].trim();
+    const start = match.index ?? 0;
+    const end = matches[index + 1]?.index ?? normalized.length;
 
-  for (let i = 0; i < matches.length; i++) {
-    const currentMatch = matches[i];
-    const nextMatch = matches[i + 1];
-
-    const title = currentMatch[1].trim();
-    const start = currentMatch.index ?? 0;
-    const end = nextMatch?.index ?? normalized.length;
-    const sectionMarkdown = normalized.slice(start, end).trim();
-
-    sections.push({
+    return {
       id: slugify(title),
       title,
-      content: sectionMarkdown,
-    });
-  }
-
-  return sections;
+      content: normalized.slice(start, end).trim(),
+    };
+  });
 }
 
 function parsePost(filePath: string, rawMarkdown: string): BlogPost {
   const parsed = fm<FrontMatterAttributes>(rawMarkdown);
   const data = parsed.attributes;
-  const content = parsed.body;
+  const content = parsed.body.trim();
 
   const fileName = filePath.split("/").pop()?.replace(".md", "") ?? "";
   const slug = data.slug || fileName;
@@ -82,17 +87,13 @@ function parsePost(filePath: string, rawMarkdown: string): BlogPost {
     category: data.category,
     publishedAt: normalizeToString(data.publishedAt),
     readTime: normalizeToString(data.readTime),
-    coverImage: data.coverImage
-      ? normalizeToString(data.coverImage)
-      : undefined,
-    coverImageAlt: data.coverImageAlt
-      ? normalizeToString(data.coverImageAlt)
-      : undefined,
+    coverImage: data.coverImage,
+    coverImageAlt: data.coverImageAlt,
   };
 
   return {
     ...meta,
-    content: content.trim(),
+    content,
     sections: parseSections(content),
   };
 }
@@ -115,20 +116,4 @@ export const categories = [
 
 export function getBlogPostBySlug(slug: string) {
   return blogPosts.find((post) => post.slug === slug);
-}
-
-function normalizeToString(value: unknown): string {
-  if (value instanceof Date) {
-    return value.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  }
-
-  if (typeof value === "string") {
-    return value;
-  }
-
-  return String(value ?? "");
 }

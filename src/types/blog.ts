@@ -1,4 +1,4 @@
-export type BlogCategory = "all" | "business" | "marketing" | "computer";
+export type BlogCategory = "all" | "build" | "grow" | "think";
 
 // export type BlogPost = {
 //   id: number;

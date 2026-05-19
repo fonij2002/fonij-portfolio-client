@@ -3,26 +3,44 @@ import type { Project } from "@/types/project";
 export const projectData: Project[] = [
   {
     id: 1,
-    title: "Pouleto",
-    category: "front-web",
-    techStack: ["React", "TypeScript", "Tailwind"],
-    description: "Frontend development for a modern product experience.",
-    liveUrl: "https://pouleto.com",
+    title: "Rozaan Shop",
+    category: "backend",
+    techStack: ["Django", "RestAPI", "PostgreSQL"],
+    description: "Telegram & Bale bot for organic fragrance products",
+    liveUrl: "https://ble.ir/myrozaan_bot",
   },
   {
     id: 2,
-    title: "Django API System",
+    title: "Bazarevam",
     category: "backend",
-    techStack: ["Django", "DRF", "PostgreSQL"],
-    description:
-      "Backend API architecture, authentication, and business logic.",
-    githubUrl: "https://github.com/yourusername/project",
+    techStack: ["Django", "RestAPI", "PostgreSQL"],
+    description: "Bale bot for Pouleto startup for loan trading",
+    liveUrl: "https://ble.ir/bazarevam_bot",
   },
   {
     id: 3,
-    title: "React Native App",
+    title: "Pouleto",
+    category: "front-web",
+    techStack: ["React.js", "TailwindCSS", "TypeScript"],
+    liveUrl: "https://pouleto.com",
+    description: "Pouleto website",
+  },
+  {
+    id: 4,
+    title: "Fonij React Template",
+    category: "front-web",
+    techStack: ["React.js", "TailwindCSS", "TypeScript"],
+    description:
+      "Vite + React 19 + shadcn/ui starter: multilingual, customized theme, routing. Start your SaaS, agency, or landing page in minutes.",
+    githubUrl: "https://github.com/Fonij80/fonij-react-template",
+  },
+  {
+    id: 5,
+    title: "Gold Dealer Platform",
     category: "front-mobile",
-    techStack: ["React Native", "Expo", "TypeScript"],
-    description: "Mobile app UI and feature implementation.",
+    techStack: ["React Native"],
+    description:
+      "A dedicated platform that enables gold dealers to offer, manage, and securely trade gold, silver, and jewelry directly with their own customers",
+    githubUrl: "https://github.com/Fonij80/gold_dealer_platform_client",
   },
 ];

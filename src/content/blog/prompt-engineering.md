@@ -2,7 +2,7 @@
 slug: google-prompt-engineering
 title: Google Prompt Engineering
 excerpt: My notes on prompt engineering fundamentals, model settings, prompting techniques, and practical best practices.
-category: computer
+category: build
 publishedAt: 2026-04-01
 readTime: 18 min read
 coverImage: /blog/prompt-engineering/cover.png

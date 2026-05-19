@@ -1,9 +1,4 @@
-export type ProjectCategory =
-  | "all"
-  | "backend"
-  | "front-mobile"
-  | "front-web"
-  | "messenger-bot";
+export type ProjectCategory = "all" | "backend" | "front-mobile" | "front-web";
 
 export type Project = {
   id: number;

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowLeft,
@@ -9,9 +9,8 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { getBlogPostBySlug } from "@/lib/blog";
+import { MarkdownRenderer } from "@/components/sections/MarkdownRenderer";
 
 export const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -96,7 +95,7 @@ export const BlogPostPage = () => {
 
             <div className="grid gap-10 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-14">
               <aside className="hidden lg:block">
-                <div className="sticky top-24 rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 backdrop-blur-xl">
+                <div className="sticky top-24 rounded-[2rem] border border-white/10 bg-white/4 p-5 backdrop-blur-xl">
                   <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.18em] text-neutral-300">
                     <Sparkles className="h-3.5 w-3.5" />
                     On this page
@@ -237,12 +236,10 @@ export const BlogPostPage = () => {
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.45 }}
-                    className="min-h-[420px]"
+                    className="min-h-105"
                   >
                     <div className="prose prose-invert max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-p:text-neutral-300 prose-p:leading-8 prose-li:text-neutral-300 prose-strong:text-white prose-img:rounded-2xl prose-img:border prose-img:border-white/10">
-                      <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                        {activeSection.content}
-                      </ReactMarkdown>
+                      <MarkdownRenderer content={activeSection.content} />
                     </div>
                   </motion.section>
 

@@ -24,7 +24,7 @@ export const BlogCardList = () => {
         >
           <div>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              My Notes on Learning Journey
+              The Builder Notes
             </h2>
           </div>
         </motion.div>

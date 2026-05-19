@@ -24,13 +24,7 @@ const initialForm: FormState = {
   currentStage: "",
   scope: [],
   platforms: [],
-  stackPreferences: "",
-  features: "",
-  references: "",
-  budget: "discuss",
   timeline: "flexible",
-  ongoingSupport: "",
-  decisionMaker: "",
   extraNotes: "",
 };
 
@@ -92,13 +86,7 @@ export const WorkWithMePage = () => {
       `Current stage: ${form.currentStage || "-"}`,
       `Scope: ${form.scope.join(", ") || "-"}`,
       `Platforms: ${form.platforms.join(", ") || "-"}`,
-      `Stack preferences: ${form.stackPreferences || "-"}`,
-      `Features: ${form.features || "-"}`,
-      `References: ${form.references || "-"}`,
-      `Budget: ${form.budget}`,
       `Timeline: ${form.timeline}`,
-      `Ongoing support needed: ${form.ongoingSupport || "-"}`,
-      `Decision maker: ${form.decisionMaker || "-"}`,
       `Extra notes: ${form.extraNotes || "-"}`,
     ];
 
@@ -147,10 +135,6 @@ export const WorkWithMePage = () => {
             >
               <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                 <div>
-                  <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-neutral-300">
-                    <Briefcase className="h-4 w-4" />
-                    Collaboration
-                  </div>
                   <h2 className="mt-4 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
                     Let’s build something thoughtful, useful, and
                     well-structured.
@@ -215,16 +199,6 @@ export const WorkWithMePage = () => {
 
                 <div className="grid gap-5">
                   <div>
-                    <FieldLabel>Project title</FieldLabel>
-                    <Input
-                      value={form.projectTitle}
-                      onChange={(e) =>
-                        updateField("projectTitle", e.target.value)
-                      }
-                      placeholder="Internal operations dashboard, startup MVP, booking app..."
-                    />
-                  </div>
-                  <div>
                     <FieldLabel>Project summary</FieldLabel>
                     <Textarea
                       value={form.projectSummary}
@@ -243,22 +217,13 @@ export const WorkWithMePage = () => {
                       className="min-h-[110px]"
                     />
                   </div>
-                  <div>
-                    <FieldLabel>What stage are you at right now?</FieldLabel>
-                    <Textarea
-                      value={form.currentStage}
-                      onChange={(e) =>
-                        updateField("currentStage", e.target.value)
-                      }
-                      placeholder="Just an idea, early prototype, redesign, existing product needing improvement, already have backend, etc."
-                      className="min-h-[110px]"
-                    />
-                  </div>
                 </div>
 
                 <div className="grid gap-8 lg:grid-cols-2">
                   <div>
-                    <FieldLabel>What do you need help with?</FieldLabel>
+                    <FieldLabel optional>
+                      What do you need help with?
+                    </FieldLabel>
                     <div className="flex flex-wrap gap-2">
                       {scopeOptions.map((option) => {
                         const active = form.scope.includes(option);
@@ -281,86 +246,7 @@ export const WorkWithMePage = () => {
                   </div>
 
                   <div>
-                    <FieldLabel>Platforms</FieldLabel>
-                    <div className="flex flex-wrap gap-2">
-                      {platformOptions.map((option) => {
-                        const active = form.platforms.includes(option);
-                        return (
-                          <button
-                            key={option}
-                            type="button"
-                            onClick={() =>
-                              toggleArrayValue("platforms", option)
-                            }
-                            className={`rounded-full border px-4 py-2 text-sm transition ${
-                              active
-                                ? "border-white/20 bg-white/10 text-white"
-                                : "border-white/10 bg-white/5 text-neutral-300 hover:bg-white/10 hover:text-white"
-                            }`}
-                          >
-                            {option}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid gap-5 lg:grid-cols-2">
-                  <div>
-                    <FieldLabel optional>
-                      Stack preferences or constraints
-                    </FieldLabel>
-                    <Textarea
-                      value={form.stackPreferences}
-                      onChange={(e) =>
-                        updateField("stackPreferences", e.target.value)
-                      }
-                      placeholder="For example: React, Django, React Native, existing API, internal tools, deployment preferences..."
-                      className="min-h-[110px]"
-                    />
-                  </div>
-                  <div>
-                    <FieldLabel>Core features</FieldLabel>
-                    <Textarea
-                      value={form.features}
-                      onChange={(e) => updateField("features", e.target.value)}
-                      placeholder="List the most important features. For example: auth, payment, dashboard, CMS, notifications, chat, reports..."
-                      className="min-h-[110px]"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <FieldLabel optional>
-                    Reference products, designs, or examples
-                  </FieldLabel>
-                  <Textarea
-                    value={form.references}
-                    onChange={(e) => updateField("references", e.target.value)}
-                    placeholder="Share links or describe products you like so I understand the direction faster."
-                    className="min-h-[100px]"
-                  />
-                </div>
-
-                <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-                  <div>
-                    <FieldLabel>Budget range</FieldLabel>
-                    <Select
-                      value={form.budget}
-                      onChange={(e) =>
-                        updateField("budget", e.target.value as BudgetRange)
-                      }
-                    >
-                      <option value="under-1k">Under $1k</option>
-                      <option value="1k-3k">$1k - $3k</option>
-                      <option value="3k-8k">$3k - $8k</option>
-                      <option value="8k-plus">$8k+</option>
-                      <option value="discuss">Prefer to discuss</option>
-                    </Select>
-                  </div>
-                  <div>
-                    <FieldLabel>Timeline</FieldLabel>
+                    <FieldLabel optional>Timeline</FieldLabel>
                     <Select
                       value={form.timeline}
                       onChange={(e) =>

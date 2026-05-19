@@ -5,5 +5,4 @@ export const projectCategories: { label: string; value: ProjectCategory }[] = [
   { label: "Backend", value: "backend" },
   { label: "Frontend", value: "front-web" },
   { label: "Mobile", value: "front-mobile" },
-  { label: "Messenger Bot", value: "messenger-bot" },
 ];

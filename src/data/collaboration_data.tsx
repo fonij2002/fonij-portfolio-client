@@ -2,24 +2,16 @@ import type { CollaborationType } from "@/types/collaboration";
 import { Code2, Layers3, Rocket } from "lucide-react";
 
 export const scopeOptions = [
-  "Landing page",
-  "Company website",
-  "Dashboard / admin panel",
-  "SaaS product",
+  "API / Backend",
+  "Landing Page",
+  "Company / Personal Website",
+  "Dashboard / Admin Panel",
+  "Telegram / Bale Bot",
   "Marketplace",
   "Mobile app",
-  "API / backend",
-  "MVP validation",
-  "UI redesign",
-  "Long-term collaboration",
 ];
 
-export const platformOptions = [
-  "Web",
-  "Mobile",
-  "Admin dashboard",
-  "API / backend",
-];
+export const platformOptions = ["Web", "Android", "IOS", "API"];
 
 export const collaborationOptions: {
   value: CollaborationType;

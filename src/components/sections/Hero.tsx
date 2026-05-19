@@ -45,7 +45,7 @@ export const Hero = () => {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="mt-6 max-w-2xl text-base leading-7 text-neutral-300 sm:text-lg"
           >
-            Exploring the art of building in business, in thought, in life.
+            Think in systems. Build for people.
           </motion.p>
 
           <motion.div

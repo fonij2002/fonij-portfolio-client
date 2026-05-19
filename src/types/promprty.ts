@@ -1,11 +1,32 @@
-export type ParamType = "temperature" | "top_p" | "top_k";
+import type { LucideIcon } from "lucide-react";
 
-export type ModelParameter = {
-  key: ParamType; // the parameter type (temperature, top_p, top_k)
-  label: string; // a human-readable label for the parameter
-  min: number; // minimum value of the parameter
-  max: number; // maximum value of the parameter
-  step: number; // step size for the parameter adjustment
-  defaultValue: number; // default value for the parameter
-  description: string; // a brief description of the parameter's purpose
-};
+export interface PromptAction {
+  id: string;
+  title: string;
+  description: string;
+  promptTemplate: string;
+}
+
+export interface Expertise {
+  id: string;
+  title: string;
+  icon: LucideIcon;
+  description: string;
+  actions: PromptAction[];
+}
+
+export interface Role {
+  id: string;
+  title: string;
+  icon: LucideIcon;
+  description: string;
+  expertises: Expertise[];
+}
+
+export interface ModelConfig {
+  model: string;
+  temperature: number;
+  maxTokens: number;
+  topP: number;
+  apiKey: string;
+}
