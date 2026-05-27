@@ -8,9 +8,9 @@ export const NotFoundPage = () => {
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-[8%] top-[10%] h-72 w-72 rounded-full bg-fuchsia-500/15 blur-[120px]" />
         <div className="absolute right-[10%] top-[8%] h-80 w-80 rounded-full bg-cyan-400/15 blur-[130px]" />
-        <div className="absolute bottom-[-4rem] left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-violet-500/10 blur-[160px]" />
+        <div className="absolute bottom-16 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-violet-500/10 blur-[160px]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.05),transparent_35%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-neutral-950" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-b from-transparent to-neutral-950" />
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] max-w-7xl items-center justify-center">
@@ -18,7 +18,7 @@ export const NotFoundPage = () => {
           initial={{ opacity: 0, y: 24, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.55, ease: "easeOut" }}
-          className="w-full max-w-3xl rounded-[2rem] border border-white/10 bg-white/[0.05] p-6 text-center shadow-2xl shadow-black/30 backdrop-blur-xl sm:p-8 lg:p-10"
+          className="w-full max-w-3xl rounded-[2rem] border border-white/10 bg-white/5 p-6 text-center shadow-2xl shadow-black/30 backdrop-blur-xl sm:p-8 lg:p-10"
         >
           <motion.div
             initial={{ opacity: 0, y: 18, scale: 0.9 }}
@@ -26,7 +26,7 @@ export const NotFoundPage = () => {
             transition={{ duration: 0.55, delay: 0.08 }}
             className="relative mx-auto mt-8 flex h-28 w-28 items-center justify-center"
           >
-            <div className="relative flex h-24 w-24 items-center justify-center rounded-full border border-white/10 bg-white/[0.06] shadow-xl shadow-black/20">
+            <div className="relative flex h-24 w-24 items-center justify-center rounded-full border border-white/10 bg-white/6 shadow-xl shadow-black/20">
               <Sparkles className="h-10 w-10 text-white" />
             </div>
           </motion.div>

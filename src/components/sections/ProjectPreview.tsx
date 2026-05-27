@@ -118,7 +118,7 @@ export const ProjectPreview = () => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-medium text-neutral-200 transition hover:bg-white/10 hover:text-white"
+                      className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-sm font-medium text-neutral-200 transition hover:bg-white/10 hover:text-white"
                     >
                       GitHub code
                       <Github className="h-4 w-4" />
@@ -129,7 +129,7 @@ export const ProjectPreview = () => {
             ))}
           </div>
         ) : (
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 text-center text-neutral-400">
+          <div className="rounded-[2rem] border border-white/10 bg-white/4 p-8 text-center text-neutral-400">
             No projects found in this category yet.
           </div>
         )}

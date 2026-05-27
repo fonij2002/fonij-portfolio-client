@@ -1,9 +1,4 @@
-import {
-  LandingPage,
-  BlogPostPage,
-  WorkWithMePage,
-  PromptryPage,
-} from "@/pages";
+import { LandingPage, BlogPostPage, BuildWithMePage } from "@/pages";
 
 type RouteConfig = {
   path: string;
@@ -28,8 +23,8 @@ export const ROUTES: RouteConfig[] = [
     nav: true,
   },
   {
-    path: "/work-with-me",
-    element: <WorkWithMePage />,
+    path: "/build-with-me",
+    element: <BuildWithMePage />,
     label: undefined,
     nav: false,
   },
@@ -38,11 +33,5 @@ export const ROUTES: RouteConfig[] = [
     element: <BlogPostPage />,
     label: undefined,
     nav: false,
-  },
-  {
-    path: "/promptry",
-    element: <PromptryPage />,
-    label: "Promprty",
-    nav: true,
   },
 ];

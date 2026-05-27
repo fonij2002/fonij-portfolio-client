@@ -16,7 +16,7 @@ export const ArticleCard = ({ post, index }: ArticleCardProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5, delay: index * 0.06 }}
-      className="group rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition hover:bg-white/[0.07]"
+      className="group rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition hover:bg-white/7"
     >
       <div className="flex items-center justify-between gap-4">
         <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium capitalize text-neutral-300">

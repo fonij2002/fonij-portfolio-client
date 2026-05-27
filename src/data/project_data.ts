@@ -15,7 +15,7 @@ export const projectData: Project[] = [
     category: "backend",
     techStack: ["Django", "RestAPI", "PostgreSQL"],
     description: "Bale bot for Pouleto startup for loan trading",
-    liveUrl: "https://ble.ir/bazarevam_bot",
+    liveUrl: "https://ble.ir/bazar_vam_bot",
   },
   {
     id: 3,

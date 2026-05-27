@@ -8,7 +8,7 @@ export const Hero = () => {
   return (
     <section
       id="home"
-      className="relative isolate w-full overflow-hidden px-6 pb-16 lg:px-8"
+      className="relative isolate w-full overflow-hidden px-4 pb-16 sm:px-6 lg:px-8"
     >
       <Header />
       <HeroBackground />
@@ -19,31 +19,29 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 18, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.02 }}
-            className="mb-8"
+            className="mb-7 sm:mb-8"
           >
-            <div className="relative mx-auto">
-              <img
-                src="/profile_image.png"
-                alt="Foroozan image"
-                className="h-24 w-24 rounded-[2rem] object-cover sm:h-28 sm:w-28"
-              />
-            </div>
+            <img
+              src="/profile_image.png"
+              alt="Foroozan image"
+              className="h-20 w-20 rounded-[1.6rem] object-cover sm:h-28 sm:w-28 sm:rounded-[2rem]"
+            />
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.05 }}
-            className="max-w-3xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl"
+            className="max-w-6xl text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:whitespace-nowrap lg:text-5xl"
           >
-            Hi! I&apos;m Foroozan.
+            Hi! I&apos;m Foroozan, a Digital Product Builder.
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="mt-6 max-w-2xl text-base leading-7 text-neutral-300 sm:text-lg"
+            className="mt-4 max-w-2xl text-base leading-7 text-neutral-300 sm:mt-6 sm:text-lg"
           >
             Think in systems. Build for people.
           </motion.p>
@@ -52,30 +50,33 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="mt-12 w-full rounded-[2rem] border border-white/10 bg-white/6 p-4 shadow-2xl shadow-black/30 backdrop-blur-xl sm:p-6"
+            className="mt-8 w-full rounded-[1.75rem] border border-white/10 bg-white/[0.06] p-3 shadow-2xl shadow-black/30 backdrop-blur-xl sm:mt-12 sm:rounded-[2rem] sm:p-6"
           >
             <ChatBoxForm />
           </motion.div>
 
-          <div className="mt-6 grid gap-3 sm:grid-cols-3">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="mt-5 grid w-full grid-cols-3 gap-2 sm:mt-6 sm:max-w-2xl sm:gap-3"
+          >
             <LinkIcon
               href="/Resume_ForoozanIraji.pdf"
               download
-              icon={
-                <FileDown className="h-4 w-4 transition group-hover:translate-y-0.5" />
-              }
+              icon={<FileDown className="h-4 w-4" />}
             >
-              My Resume
+              Resume
             </LinkIcon>
 
             <LinkIcon href="#projects" icon={<Briefcase className="h-4 w-4" />}>
-              My Projects
+              Projects
             </LinkIcon>
 
             <LinkIcon href="#blog" icon={<Notebook className="h-4 w-4" />}>
-              My Notes
+              Notes
             </LinkIcon>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

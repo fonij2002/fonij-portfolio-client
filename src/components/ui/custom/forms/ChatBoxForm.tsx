@@ -92,7 +92,7 @@ export const ChatBoxForm = () => {
               setQuestion(e.target.value);
               setShowAnswer(false);
             }}
-            placeholder="Ask about my skills, projects, background..."
+            placeholder="Ask about my skills, background, ..."
             className="h-14 w-full rounded-2xl border border-white/10 bg-neutral-900/80 pl-11 pr-4 text-sm text-white outline-none transition placeholder:text-neutral-500 focus:border-fuchsia-400/30"
           />
         </div>

@@ -1,43 +1,54 @@
-import type { AnchorHTMLAttributes, ReactNode, MouseEvent } from "react";
+import { cn } from "@/lib/utils";
+import type { MouseEvent, ReactNode } from "react";
 
-interface LinkIconProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  icon: ReactNode;
+type LinkIconProps = {
+  href: string;
   children: ReactNode;
-}
+  icon: ReactNode;
+  download?: boolean;
+  className?: string;
+  onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
+};
 
 export const LinkIcon = ({
-  icon,
-  children,
   href,
-  className = "",
+  children,
+  icon,
+  download,
+  className,
   onClick,
-  ...props
 }: LinkIconProps) => {
-  const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
-    if (href?.startsWith("#")) {
-      e.preventDefault();
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    onClick?.(event);
 
-      const target = document.querySelector(href);
-      if (target) {
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
+    if (event.defaultPrevented || download || !href.startsWith("#")) {
+      return;
     }
 
-    onClick?.(e);
+    event.preventDefault();
+
+    const target = document.querySelector(href);
+
+    target?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   return (
     <a
       href={href}
       onClick={handleClick}
-      className={`group inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-sm font-medium text-neutral-200 transition hover:bg-white/10 hover:text-white ${className}`}
-      {...props}
+      download={download}
+      className={cn(
+        "group inline-flex min-h-12 flex-col items-center justify-center gap-1 rounded-2xl border border-white/10 bg-white/[0.04] px-2 py-4 text-xs font-medium text-neutral-200 transition hover:bg-white/10 hover:text-white sm:min-h-0 sm:flex-row sm:gap-2 sm:px-4 sm:text-sm",
+        className,
+      )}
     >
-      {icon}
-      {children}
+      <span className="text-neutral-300 transition group-hover:text-white">
+        {icon}
+      </span>
+      <span className="leading-none">{children}</span>
     </a>
   );
 };

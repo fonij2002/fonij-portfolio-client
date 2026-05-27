@@ -14,7 +14,7 @@ export { IconLogo } from "./icons/IconLogo";
 
 // -------------------- inputs --------------------
 // // number
-// export { HeightInput } from "./inputs/number/HeightInput";
+export { InputSelect } from "./inputs/InputSelect";
 // export { PhoneNumberInput } from "./inputs/number/PhoneNumberInput";
 // export { WeightInput } from "./inputs/number/WeightInput";
 
@@ -46,5 +46,6 @@ export { ChatBoxForm } from "./forms/ChatBoxForm";
 export { ArticleCard } from "./cards/ArticleCard";
 
 // -------------------- containers --------------------
+export { ContainerResponsive } from "./containers/ContainerResponsive";
 export { ContainerWithBorder } from "./containers/ContainerWithBorder";
 export { ContainerTransparent } from "./containers/ContainerTransparent";

@@ -1,15 +1,5 @@
 export type BlogCategory = "all" | "build" | "grow" | "think";
 
-// export type BlogPost = {
-//   id: number;
-//   title: string;
-//   excerpt: string;
-//   category: Exclude<Category, "all">;
-//   date: string;
-//   readTime: string;
-//   slug: string;
-// };
-
 export type BlogPostMeta = {
   slug: string;
   title: string;

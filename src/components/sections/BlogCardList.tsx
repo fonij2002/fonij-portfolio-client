@@ -1,4 +1,8 @@
-import { ArticleCard, ContainerWithBorder } from "@/components/ui/custom";
+import {
+  ArticleCard,
+  ContainerResponsive,
+  ContainerWithBorder,
+} from "@/components/ui/custom";
 import { blogPostMetas, categories } from "@/lib/blog";
 import type { BlogCategory } from "@/types/blog";
 import { motion } from "framer-motion";
@@ -14,7 +18,7 @@ export const BlogCardList = () => {
 
   return (
     <section id="blog">
-      <ContainerWithBorder>
+      <ContainerResponsive>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +65,7 @@ export const BlogCardList = () => {
             <ArticleCard key={post.slug} post={post} index={index} />
           ))}
         </div>
-      </ContainerWithBorder>
+      </ContainerResponsive>
     </section>
   );
 };

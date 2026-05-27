@@ -30,7 +30,7 @@ export const BlogPostPage = () => {
             Back to home
           </Link>
 
-          <div className="mt-10 rounded-[2rem] border border-white/10 bg-white/[0.04] p-8">
+          <div className="mt-10 rounded-[2rem] border border-white/10 bg-white/4 p-8">
             <h1 className="text-3xl font-semibold">Post not found</h1>
             <p className="mt-4 text-neutral-400">
               The article you are looking for does not exist.
@@ -138,7 +138,7 @@ export const BlogPostPage = () => {
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
-                  className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl sm:p-8 lg:p-10"
+                  className="rounded-[2rem] border border-white/10 bg-white/4 p-6 backdrop-blur-xl sm:p-8 lg:p-10"
                 >
                   <div className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-neutral-300">
                     {blogPost.category}
@@ -172,14 +172,14 @@ export const BlogPostPage = () => {
                       <img
                         src={blogPost.coverImage}
                         alt={blogPost.coverImageAlt ?? blogPost.title}
-                        className="h-[320px] w-full object-cover sm:h-[420px]"
+                        className="h-[320px] w-full object-cover sm:h-105"
                       />
                     </div>
                   )}
                 </motion.header>
 
-                <div className="mt-10 rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl sm:p-8 lg:p-10">
-                  <div className="mb-8 rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5 lg:hidden">
+                <div className="mt-10 rounded-[2rem] border border-white/10 bg-white/3 p-6 backdrop-blur-xl sm:p-8 lg:p-10">
+                  <div className="mb-8 rounded-[1.5rem] border border-white/10 bg-white/3 p-5 lg:hidden">
                     <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.18em] text-neutral-300">
                       <LinkIcon className="h-3.5 w-3.5" />
                       Sections
@@ -207,7 +207,7 @@ export const BlogPostPage = () => {
                     </div>
                   </div>
 
-                  <div className="mb-6 flex items-center justify-between gap-4 rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-4">
+                  <div className="mb-6 flex items-center justify-between gap-4 rounded-[1.5rem] border border-white/10 bg-white/3 p-4">
                     <div>
                       <p className="text-xs uppercase tracking-[0.18em] text-neutral-500">
                         Reading progress
@@ -250,7 +250,7 @@ export const BlogPostPage = () => {
                       disabled={isFirstSection}
                       className={`inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-medium transition ${
                         isFirstSection
-                          ? "cursor-not-allowed border border-white/10 bg-white/[0.03] text-neutral-600"
+                          ? "cursor-not-allowed border border-white/10 bg-white/3 text-neutral-600"
                           : "border border-white/10 bg-white/5 text-neutral-200 hover:bg-white/10 hover:text-white"
                       }`}
                     >
@@ -258,19 +258,13 @@ export const BlogPostPage = () => {
                       Previous section
                     </button>
 
-                    <div className="text-center text-sm text-neutral-500">
-                      {isLastSection
-                        ? "You reached the final section."
-                        : "Move one section at a time for a calmer reading experience."}
-                    </div>
-
                     <button
                       type="button"
                       onClick={goToNextSection}
                       disabled={isLastSection}
                       className={`inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-medium transition ${
                         isLastSection
-                          ? "cursor-not-allowed border border-white/10 bg-white/[0.03] text-neutral-600"
+                          ? "cursor-not-allowed border border-white/10 bg-white/3 text-neutral-600"
                           : "border border-white/10 bg-white text-neutral-950 hover:scale-[1.01]"
                       }`}
                     >
