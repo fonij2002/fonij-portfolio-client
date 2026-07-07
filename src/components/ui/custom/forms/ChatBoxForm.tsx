@@ -19,6 +19,14 @@ function getAnswer(message: string): string {
   }
 
   if (
+    normalized.includes("work") ||
+    normalized.includes("experience") ||
+    normalized.includes("job")
+  ) {
+    return quickAnswers.experience;
+  }
+
+  if (
     normalized.includes("skill") ||
     normalized.includes("tech stack") ||
     normalized.includes("frontend")
@@ -36,7 +44,7 @@ function getAnswer(message: string): string {
 
   if (
     normalized.includes("project") ||
-    normalized.includes("work") ||
+    normalized.includes("build") ||
     normalized.includes("portfolio")
   ) {
     return quickAnswers.projects;

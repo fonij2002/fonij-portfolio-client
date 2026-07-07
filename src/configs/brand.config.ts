@@ -1,4 +1,5 @@
 import logoImage from "@/assets/images/brand-logo2.png";
+import type { SocialLink } from "@/types/social";
 import {
   FaGithub,
   FaInstagram,
@@ -6,7 +7,6 @@ import {
   FaTelegram,
   FaYoutube,
 } from "react-icons/fa";
-import type { SocialLink } from "@/types/social";
 
 export const brandConfig = {
   nameKey: "brand_name",
@@ -20,12 +20,12 @@ export const brandConfig = {
 export const socialLinkConfig: SocialLink[] = [
   {
     label: "GitHub",
-    href: "https://github.com/Fonij80",
+    href: "https://github.com/Fonij2002",
     Icon: FaGithub,
   },
   {
     label: "Telegram",
-    href: "https://t.me/Foroozan_Iraji",
+    href: "https://t.me/the_builder_notes",
     Icon: FaTelegram,
   },
   {

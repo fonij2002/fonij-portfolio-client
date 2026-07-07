@@ -1,4 +1,4 @@
-export type BlogCategory = "all" | "build" | "grow" | "think";
+export type BlogCategory = "all" | "think" | "build" | "grow";
 
 export type BlogPostMeta = {
   slug: string;

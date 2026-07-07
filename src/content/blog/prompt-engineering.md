@@ -1,6 +1,6 @@
 ---
-slug: google-prompt-engineering
-title: Google Prompt Engineering
+slug: easy-prompt-engineering
+title: Easy Prompt Engineering
 excerpt: My notes on prompt engineering fundamentals, model settings, prompting techniques, and practical best practices.
 category: build
 publishedAt: 2026-04-01
@@ -9,7 +9,7 @@ coverImage: /blog/prompt-engineering/cover.png
 coverImageAlt: Prompt engineering article cover
 ---
 
-# Google Prompt Engineering
+# Easy Prompt Engineering
 
 These are my notes on how prompting works, how model configuration affects outputs, and which prompting techniques are most useful in practice.
 

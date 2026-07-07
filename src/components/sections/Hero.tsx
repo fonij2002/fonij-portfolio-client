@@ -34,7 +34,7 @@ export const Hero = () => {
             transition={{ duration: 0.7, delay: 0.05 }}
             className="max-w-6xl text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:whitespace-nowrap lg:text-5xl"
           >
-            Hi! I&apos;m Foroozan, a Digital Product Builder.
+            Hi! I&apos;m Foroozan, a Product Builder.
           </motion.h1>
 
           <motion.p
@@ -43,7 +43,7 @@ export const Hero = () => {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="mt-4 max-w-2xl text-base leading-7 text-neutral-300 sm:mt-6 sm:text-lg"
           >
-            Think in systems. Build for people.
+            Exploring the art of building in Business, in Thought, in Life.
           </motion.p>
 
           <motion.div

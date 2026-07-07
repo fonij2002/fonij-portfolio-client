@@ -1,22 +1,25 @@
+import { ContainerTransparent } from "@/components/ui/custom";
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import { useMemo, useState } from "react";
-import { ContainerTransparent } from "@/components/ui/custom";
 
+import { projectCategories } from "@/configs";
 import { projectData } from "@/data/project_data";
 import type { ProjectCategory } from "@/types/project";
-import { projectCategories } from "@/configs";
 
 export const ProjectPreview = () => {
   const [selectedCategory, setSelectedCategory] =
     useState<ProjectCategory>("all");
 
   const filteredProjects = useMemo(() => {
-    if (selectedCategory === "all") return projectData;
+    const projectsByCategory =
+      selectedCategory === "all"
+        ? projectData
+        : projectData.filter(
+            (project) => project.category === selectedCategory,
+          );
 
-    return projectData.filter(
-      (projectData) => projectData.category === selectedCategory,
-    );
+    return [...projectsByCategory].reverse();
   }, [selectedCategory]);
 
   return (
@@ -130,7 +133,7 @@ export const ProjectPreview = () => {
           </div>
         ) : (
           <div className="rounded-[2rem] border border-white/10 bg-white/4 p-8 text-center text-neutral-400">
-            No projects found in this category yet.
+            Building soon.
           </div>
         )}
       </ContainerTransparent>

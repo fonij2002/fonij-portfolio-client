@@ -1,3 +1,3 @@
 import type { BlogCategory } from "@/types/blog";
 
-export const blogCategories: BlogCategory[] = ["all", "build", "grow", "think"];
+export const blogCategories: BlogCategory[] = ["all", "think", "build", "grow"];

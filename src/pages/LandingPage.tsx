@@ -1,11 +1,11 @@
-import { BlogCardList, Hero, ProjectPreview } from "@/components";
+import { Hero, ProjectPreview } from "@/components";
 
 export const LandingPage = () => {
   return (
     <>
       <Hero />
       <ProjectPreview />
-      <BlogCardList />
+      {/* <BlogCardList /> */}
     </>
   );
 };
