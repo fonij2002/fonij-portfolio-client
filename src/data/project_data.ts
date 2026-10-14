@@ -17,7 +17,7 @@ export const projectData: Project[] = [
     techStack: ["Django", "DRF", "PostgreSQL"],
     description:
       "Developed the backend API for a movie recommendation system as my Bachelor's thesis, designing RESTful services, database models, and recommendation workflows using Django.",
-    liveUrl: "https://github.com/FilmGozin/filmgozin-server",
+    githubUrl: "https://github.com/FilmGozin/filmgozin-server",
   },
   {
     id: 3,
